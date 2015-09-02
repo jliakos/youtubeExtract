@@ -31,9 +31,6 @@ public class YoutubeLinkExtractor {
 	private static final String TEST_PLAYLIST = "Test Playlist";
 	private static Integer MAX_LINKS = 100;
 	private Pattern pattern;
-
-	// private final String YOUTUBE_PATTERN =
-	// "https?:\\/\\/(?:[0-9A-Z-]+\\.)?(?:youtu\\.be\\/|youtube\\.com\\S*[^\\w\\-\\s])([\\w\\-]{11})(?=[^\\w\\-]|$)(?![?=&+%\\w]*(?:['\"][^<>]*>|<\\/a>))[?=&+%\\w]*";
 	private final String YOUTUBE_PATTERN = "(http:|https:)?\\/\\/(www\\.)?(youtube.com|youtu.be)\\/(watch)?(\\?v=)?(\\S+)?";
 	final Pattern VIDEO_ID = Pattern.compile(
 			"(?<=watch\\?v=|/videos/|embed\\/|youtu.be\\/|\\/v\\/|\\/e\\/|watch\\?v%3D|watch\\?feature=player_embedded&v=|%2Fvideos%2F|embed%\u200C\u200B2F|youtu.be%2F|%2Fv%2F)[^#\\&\\?\\n]*");
@@ -110,12 +107,7 @@ public class YoutubeLinkExtractor {
 	}
 
 	private String getVideoID(String url) {
-		/*
-		 * final String pattern ="?v="; int position =url.indexOf(pattern);
-		 * 
-		 * if(position !=-1 ) { return url.substring(position +
-		 * pattern.length()); } return null;
-		 */
+		
 
 		Matcher m = VIDEO_ID.matcher(url);
 		if (m.find()) {
@@ -172,14 +164,7 @@ public class YoutubeLinkExtractor {
 			}
 		}
 
-		// String out = new Scanner(new
-		// URL("http://www.google.com").openStream(),
-		// "UTF-8").useDelimiter("\\A").next();
-		/*
-		 * List<String> htmlLinks = htmlLinkExtractor
-		 * .grabHTMLLinks(IOUtils.toString(new
-		 * URL("https://www.facebook.com/YOUcover")));
-		 */
+		
 
 		if (CollectionUtils.isEmpty(htmlLinks)) {
 			System.out.println("No youtube links found");
