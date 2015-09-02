@@ -1,11 +1,10 @@
 =====
 Youtube link extractor + upload to a new playlist to youtube
-
-## Requirements
+=====
+##Requirements
 
 - Java 8
-- 
-=====
+
 ##Build
 
  	> gradle clean buildJar
